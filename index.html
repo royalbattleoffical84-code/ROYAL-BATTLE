@@ -8,28 +8,34 @@
 <style>
   :root{--obsidian:#0a0a0d;--crimson:#8c1c2b;--crimson-bright:#c72a3e;--gold:#c9a227;--gold-bright:#e8c454;--ash:#6b6b76;--bone:#ece7dc;--line: rgba(201,162,39,0.18);}
   *{margin:0;padding:0;box-sizing:border-box;}
-  body{background:var(--obsidian);color:var(--bone);font-family:'Rajdhani',sans-serif;}
+  body{background:var(--obsidian);color:var(--bone);font-family:'Rajdhani',sans-serif;overflow-x:hidden;}
   
   /* Lightbox */
   #lightbox{display:none;position:fixed;z-index:1000;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);justify-content:center;align-items:center;cursor:pointer;}
   #lightbox img{max-width:90%;max-height:90%;border:2px solid var(--gold);box-shadow:0 0 20px rgba(0,0,0,0.5);}
 
-  .section{padding:60px 20px;}
-  .section-head{text-align:center;margin-bottom:40px;}
+  .section{padding:60px 20px;text-align:center;}
+  .section-head{margin-bottom:40px;}
   .section-head h2{font-family:'Cinzel',serif;color:var(--gold-bright);font-size:2rem;}
   
+  /* 3D Carousel */
+  .scene{perspective:1200px;width:240px;height:320px;position:relative;margin:40px auto 80px;}
+  .carousel{width:100%;height:100%;position:absolute;transform-style:preserve-3d;animation:spin 20s linear infinite;}
+  @keyframes spin{from{transform:rotateY(0deg);}to{transform:rotateY(360deg);}}
+  .card{position:absolute;width:240px;height:320px;border-radius:20px;padding:30px;background:#1a1a1f;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;backface-visibility:visible;}
+  .card h3{color:var(--gold);margin-bottom:10px;}
+  .card p{font-size:0.9rem;color:var(--ash);}
+
+  .btn-row{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;margin-top:30px;}
+  .btn{padding:12px 24px;border-radius:4px;text-decoration:none;font-weight:bold;font-size:0.9rem;transition:0.3s;border:1px solid var(--gold);color:var(--gold);}
+  .btn-primary{background:var(--crimson);color:#fff;border:none;}
+  .btn:hover{transform:translateY(-3px);background:var(--gold);color:var(--obsidian);}
+
   .app-preview-container{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;}
-  .app-preview-container img{width:240px;border-radius:15px;cursor:pointer;border:1px solid var(--line);transition:0.3s;}
+  .app-preview-container img{width:220px;border-radius:15px;cursor:pointer;border:1px solid var(--line);transition:0.3s;}
   .app-preview-container img:hover{transform:scale(1.05);}
 
-  .about-app{max-width:800px;margin:40px auto;padding:30px;background:rgba(255,255,255,0.03);border-radius:12px;border-left:4px solid var(--crimson);}
-  .about-app h3{color:var(--gold);margin-bottom:15px;}
-  .about-app p{color:var(--ash);line-height:1.7;margin-bottom:10px;}
-
-  .btn{display:inline-block;padding:15px 30px;background:var(--crimson);color:#fff;text-transform:uppercase;font-weight:bold;margin-top:20px;border-radius:4px;text-decoration:none;transition:0.3s;}
-  .btn:hover{background:var(--crimson-bright);transform:scale(1.02);}
   footer{text-align:center;padding:40px;color:var(--ash);font-size:0.8rem;}
-  .logo-img{width:100px; margin-bottom:20px;}
 </style>
 </head>
 <body>
@@ -39,34 +45,42 @@
 </div>
 
 <section style="text-align:center; padding-top:100px;">
-  <!-- Logo link -->
-  <img src="royalbattle-logo.png" alt="Logo" class="logo-img">
+  <img src="royalbattle-logo.png" style="width:100px; margin-bottom:20px;">
   <h1 style="font-family:'Cinzel'; color:var(--gold-bright);">ROYAL BATTLE</h1>
   <p style="margin:15px 0;">Where Champions Are Crowned</p>
-  
-  <!-- APK Download Link with space handling (%20) -->
-  <a href="ROYAL%20BATTLE.apk" class="btn" download>Download Royal Battle</a>
+  <a href="ROYAL%20BATTLE.apk" class="btn btn-primary" download>Download Royal Battle</a>
 </section>
 
-<section class="section" id="preview">
-  <div class="section-head"><h2>Inside The Arena</h2></div>
-  <div class="app-preview-container">
-    <!-- Correct Filenames from your Repo -->
-    <img src="Screenshot_20260714_183505.png" alt="Screenshot 1" onclick="openLightbox(this.src)">
-    <img src="Screenshot_20260714_181643.png" alt="Screenshot 2" onclick="openLightbox(this.src)">
-    <img src="Screenshot_20260714_181658.png" alt="Screenshot 3" onclick="openLightbox(this.src)">
+<!-- 3D Carousel Features -->
+<section class="section">
+  <div class="scene">
+    <div class="carousel">
+      <div class="card" style="transform:rotateY(0deg) translateZ(250px);"><h3>🎮 Daily Tournaments</h3><p>Join matches every day.</p></div>
+      <div class="card" style="transform:rotateY(120deg) translateZ(250px);"><h3>💰 Real Prizes</h3><p>Win real cash prizes.</p></div>
+      <div class="card" style="transform:rotateY(240deg) translateZ(250px);"><h3>🛡️ Fair Play</h3><p>Secure & anti-cheat system.</p></div>
+    </div>
   </div>
 </section>
 
-<section class="about-app">
-  <h3>About Royal Battle</h3>
-  <p>Royal Battle ek premiere esports tournament platform hai jise mobile gamers ke liye banaya gaya hai. Humara mission hai har ek player ko ek fair aur competitive environment dena jahan wo apni skill dikha sakein.</p>
-  <p><strong>Features:</strong> Instant withdrawals, 24/7 customer support, secure fair-play anti-cheat system, aur daily cash tournaments. Aaj hi download karein aur apni gaming journey ko professional level par le jayein!</p>
+<section class="section">
+  <div class="section-head"><h2>Inside The Arena</h2></div>
+  <div class="app-preview-container">
+    <img src="Screenshot_20260714_183505.png" onclick="openLightbox(this.src)">
+    <img src="Screenshot_20260714_181643.png" onclick="openLightbox(this.src)">
+    <img src="Screenshot_20260714_181658.png" onclick="openLightbox(this.src)">
+  </div>
 </section>
 
-<footer id="download">
-  <p>© 2026 Royal Battle. All Rights Reserved.</p>
-</footer>
+<section class="section">
+  <h2>Support & Connect</h2>
+  <div class="btn-row">
+    <a href="https://www.instagram.com/royalbattle_offical?igsh=cjAycW9nb3EzYmdr" class="btn">Instagram</a>
+    <a href="https://whatsapp.com/channel/0029VbCx9qDG3R3l439jxw39" class="btn">WhatsApp Channel</a>
+    <a href="mailto:royalbattleoffical84@gmail.com" class="btn">24/7 Email Support</a>
+  </div>
+</section>
+
+<footer><p>© 2026 Royal Battle. All Rights Reserved.</p></footer>
 
 <script>
   function openLightbox(src) {
@@ -74,6 +88,5 @@
     document.getElementById('lightbox').style.display = 'flex';
   }
 </script>
-
 </body>
 </html>
