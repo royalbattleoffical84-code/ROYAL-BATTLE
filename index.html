@@ -29,6 +29,7 @@
   .btn{display:inline-block;padding:15px 30px;background:var(--crimson);color:#fff;text-transform:uppercase;font-weight:bold;margin-top:20px;border-radius:4px;text-decoration:none;transition:0.3s;}
   .btn:hover{background:var(--crimson-bright);transform:scale(1.02);}
   footer{text-align:center;padding:40px;color:var(--ash);font-size:0.8rem;}
+  .logo-img{width:100px; margin-bottom:20px;}
 </style>
 </head>
 <body>
@@ -38,17 +39,22 @@
 </div>
 
 <section style="text-align:center; padding-top:100px;">
+  <!-- Logo link -->
+  <img src="royalbattle-logo.png" alt="Logo" class="logo-img">
   <h1 style="font-family:'Cinzel'; color:var(--gold-bright);">ROYAL BATTLE</h1>
   <p style="margin:15px 0;">Where Champions Are Crowned</p>
-  <a href="app.apk" class="btn" download>Download The App</a>
+  
+  <!-- APK Download Link with space handling (%20) -->
+  <a href="ROYAL%20BATTLE.apk" class="btn" download>Download Royal Battle</a>
 </section>
 
 <section class="section" id="preview">
   <div class="section-head"><h2>Inside The Arena</h2></div>
   <div class="app-preview-container">
-    <img src="screenshot1.png" alt="Screenshot 1" onclick="openLightbox(this.src)">
-    <img src="screenshot2.png" alt="Screenshot 2" onclick="openLightbox(this.src)">
-    <img src="screenshot3.png" alt="Screenshot 3" onclick="openLightbox(this.src)">
+    <!-- Correct Filenames from your Repo -->
+    <img src="Screenshot_20260714_183505.png" alt="Screenshot 1" onclick="openLightbox(this.src)">
+    <img src="Screenshot_20260714_181643.png" alt="Screenshot 2" onclick="openLightbox(this.src)">
+    <img src="Screenshot_20260714_181658.png" alt="Screenshot 3" onclick="openLightbox(this.src)">
   </div>
 </section>
 
